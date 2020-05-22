@@ -1,0 +1,10 @@
+﻿<Window x:Class="PatchCreator2.ConfirmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About..." Height="300" Width="350" Background="#FF1B1B1C" WindowStyle="None" WindowStartupLocation="CenterOwner" AllowsTransparency="True" BorderThickness="1" BorderBrush="#FF333337">
+    <Grid>
+        <Button x:Name="noButton" HorizontalAlignment="Right" Width="50" BorderThickness="0" Background="{x:Null}" Content="[No]" ToolTip="Do not create the patch." HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Click="noButton_Click" BorderBrush="{x:Null}" Foreground="White" Margin="0,268,10,10" IsCancel="True" Cursor="Hand"/>
+        <Button x:Name="yesButton" BorderThickness="0" Background="{x:Null}" Content="[Yes]" ToolTip="Create the patch anyway." HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Click="yesButton_Click" BorderBrush="{x:Null}" Foreground="White" Margin="10,268,288,10" Cursor="" IsDefault="True"/>
+        <TextBox x:Name="warningTextBox" Margin="10,10,10,35" TextWrapping="Wrap" Text="TextBox" Background="#FF333337" Foreground="White" IsReadOnly="True" BorderBrush="#FF434346"/>
+    </Grid>
+</Window>

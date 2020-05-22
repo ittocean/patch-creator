@@ -1,0 +1,10 @@
+﻿<Window x:Class="PatchCreator2.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About..." Height="216" Width="242" Background="#FF1B1B1C" WindowStyle="None" WindowStartupLocation="CenterOwner" AllowsTransparency="True" BorderThickness="1" BorderBrush="#FF333337">
+    <Grid>
+        <Button x:Name="closeButton" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Height="20" BorderThickness="0" Background="{x:Null}" Content="[X]" ToolTip="Close" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Click="closeButton_Click" BorderBrush="{x:Null}" Foreground="White" Margin="0,5,5,0"/>
+        <Label x:Name="contentLabel" Content="&lt;&lt;Label&gt;&gt;" Margin="10,25,10,0" VerticalAlignment="Top" Height="50" Foreground="White" MouseUp="contentLabel_MouseUp"/>
+        <TextBox x:Name="conditionTextBox" HorizontalAlignment="Left" Height="129" Margin="10,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="220" Background="#FF333337" Foreground="White" IsReadOnly="True" BorderBrush="#FF434346"/>
+    </Grid>
+</Window>
