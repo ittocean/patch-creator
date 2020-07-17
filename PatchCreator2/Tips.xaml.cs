@@ -94,7 +94,7 @@ So, did you write a test today?",
             @"Never trust a computer you can’t throw out a window.
 - Steve Wozniak",
             @"Nobody expects the Spanish Incquisition!
-- Monty Python",
+- Monty Python's Flying Circus",
             "Developer: an organism that turns coffee into code.",
             @"Simplicity is prerequisite for reliability.
 - Edsger W. Dijkstra",
@@ -125,7 +125,23 @@ So, did you write a test today?",
             "The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and then start on the first one.",
             @"Plans are worthless, but planning is everything.
 - Dwight Eisenhower",
-
+            @"One of my most productive days was throwing away 1000 lines of code.
+- Ken Thompson",
+            "Eagleson's Law of Programming: Any code of your own that you haven't looked at for six or more months, might as well have been written by someone else.",
+            @"I think it's very important to get more women into computing. My slogan is: Computing is too important to be left to men.
+- Karen Spärck Jones",
+            @"Java is to JavaScript as ham is to hamster.
+- Jeremy Keith",
+            @"If you say “I told you so”, you are the one who has failed. Because you knew, but did not manage to stop the train wreck.
+- Robert C. Martin",
+            @"We crave for new sensations but soon become indifferent to them. Wonders of yesterday are today common occurrences.
+- Nikola Tesla",
+            @"So much complexity in software comes from trying to make one thing do two things.
+- Ryan Singer",
+            @"There's nothing more permanent than a temporary hack.
+- Kyle Simpson",
+            @"It can be better to copy a little code than to pull in a big library for one function. Dependency hygiene trumps code reuse.
+- Rob Pyke",
         };
 
         public TipsWindow()

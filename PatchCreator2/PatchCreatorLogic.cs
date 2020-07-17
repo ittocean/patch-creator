@@ -79,11 +79,11 @@ Content:";
 					int startIndex = filePath.Path.IndexOf("\\" + i_BaseCommonFolder + "\\");
 					int endIndex = filePath.Path.LastIndexOf("\\");
 					string path = filePath.Path.Substring(startIndex, endIndex - startIndex);
-					string fileName = filePath.Path.Substring(endIndex);
+					string fileName = filePath.Path.Substring(endIndex + 1);
                     if (File.Exists(filePath.Path))
                     {
                         zip.AddFile(filePath.Path, path);
-                        readmeContent += string.Format("\n - {0}", path);
+                        readmeContent += string.Format("\n - {0}\\{1}", path, fileName);
                     }
 				}
 
