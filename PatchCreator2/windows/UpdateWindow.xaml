@@ -6,7 +6,7 @@
         <Label x:Name="contentLabel" Content="&lt;&lt;Label&gt;&gt;" Margin="10,30,10,0" VerticalAlignment="Top" Height="73" Foreground="White"/>
         <Ellipse x:Name="ellipseButton" Height="58" Margin="0,0,0,10" VerticalAlignment="Bottom" Stroke="Black" Cursor="Hand" StrokeThickness="2" MouseLeftButtonUp="ellipseButton_MouseLeftButtonUp" MouseEnter="ellipseButton_MouseEnter" MouseLeave="ellipseButton_MouseLeave" ToolTip="Create Patch" Focusable="True" Width="58">
             <Ellipse.Fill>
-                <ImageBrush ImageSource="Resources/favicon.ico" Stretch="Uniform" Viewport="0.1,0.1,0.8,0.8"/>
+                <ImageBrush ImageSource="/PatchCreator;component/Resources/favicon-white.ico" Stretch="Uniform" Viewport="0.1,0.1,0.8,0.8"/>
             </Ellipse.Fill>
         </Ellipse>
     </Grid>

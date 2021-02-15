@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace PatchCreator2
 {
@@ -61,7 +63,7 @@ namespace PatchCreator2
 
 		private void grid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-			if (e.ChangedButton == MouseButton.Left && !e.OriginalSource.Equals(ellipseButton))
+			if (e.ChangedButton == MouseButton.Left && !(e.OriginalSource is Ellipse))
 			{
 				DragMove();
 			}
@@ -76,17 +78,17 @@ namespace PatchCreator2
 
 		private void ellipseButton_MouseEnter(object sender, MouseEventArgs e)
 		{
-			ellipseButton.Stroke = new SolidColorBrush(Color.FromRgb(126, 180, 234));
+			((Ellipse) e.OriginalSource).Stroke = new SolidColorBrush(Color.FromRgb(126, 180, 234));
 		}
 
 		private void ellipseButton_MouseLeave(object sender, MouseEventArgs e)
 		{
-			ellipseButton.Stroke = Brushes.Black;
+			((Ellipse) e.OriginalSource).Stroke = Brushes.White;
 		}
 
 		private void ellipseButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 		{
-			ellipseButton.Focus();
+			createButton.Focus();
 			if (ValidateForm())
 			{
                 bool? proceedWithPatchCreation = true;
@@ -100,8 +102,12 @@ namespace PatchCreator2
 
                 if (proceedWithPatchCreation.GetValueOrDefault(false))
                 {
-                    Logic.createPatch(commonBaseTextBox.Text, null, prodTextBox.Text, buildTextBox.Text, descriptionTextBox.Text);
-                }
+                    string pathToPatch = Logic.createPatch(commonBaseTextBox.Text, prodTextBox.Text, buildTextBox.Text, descriptionTextBox.Text);
+					if (pathToPatch != null)
+					{
+						Process.Start("explorer.exe", string.Format("/select,\"{0}\"", pathToPatch));
+					}
+				}
 			}
 		}
 
@@ -239,5 +245,13 @@ namespace PatchCreator2
 
 			return result;
 		}
-    }
+
+		private void sendButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+		{
+			sendButton.Focus();
+			Window sendPatch = new SendPatchWindow();
+			sendPatch.Owner = this;
+			sendPatch.ShowDialog();
+		}
+	}
 }

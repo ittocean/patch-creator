@@ -58,12 +58,8 @@ Content:";
             return m_ProjectName;
         }
 
-		public void createPatch(string i_BaseCommonFolder, string i_DestinationFolder, string i_Prod, string i_Build, string i_Description)
+		public string createPatch(string i_BaseCommonFolder, string i_Prod, string i_Build, string i_Description)
 		{
-			if (i_DestinationFolder == null)
-			{
-				i_DestinationFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			}
             DateTime now = DateTime.Now;
 			string timstamp = now.ToString(TIMESTAMP_FORMAT);
 			string timstampPretty = now.ToString(TIMESTAMP_PRETTY_FORMAT);
@@ -72,7 +68,8 @@ Content:";
             string userName = Environment.UserName;
             string machineName = Environment.MachineName;
             string readmeContent = string.Format(README_CONTENT_FORMAT, archiveName, m_ProjectName, i_Prod, i_Build, timstampPretty, userName, machineName, i_Description);
-			using (ZipFile zip = new ZipFile())
+            string destinationFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            using (ZipFile zip = new ZipFile())
 			{   
 				foreach (FilePath filePath in FilePaths)
 				{
@@ -89,11 +86,15 @@ Content:";
 
 				zip.AddEntry(readmeName, Encoding.UTF8.GetBytes(readmeContent));
 				zip.Save(archiveName);
-				Directory.CreateDirectory(i_DestinationFolder);
-				if (!File.Exists(i_DestinationFolder + "\\" + archiveName))
-				{
-					File.Move(archiveName, i_DestinationFolder + "\\" + archiveName);
-                    Process.Start("explorer.exe", string.Format("/select,\"{0}\"", i_DestinationFolder + "\\" + archiveName));
+				Directory.CreateDirectory(destinationFolder);
+                if (!File.Exists(destinationFolder + "\\" + archiveName))
+                {
+                    File.Move(archiveName, destinationFolder + "\\" + archiveName);
+                    return destinationFolder + "\\" + archiveName;
+                }
+                else
+                {
+                    return null;
                 }
             }
 		}
@@ -119,7 +120,6 @@ Content:";
             }
             return filesStats;
         }
-
 
         public void AddFiles(string[] files)
         {
